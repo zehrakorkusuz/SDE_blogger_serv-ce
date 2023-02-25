@@ -38,8 +38,6 @@ app.post('/generateText', async (req, res) => {
     stop,
   }
 
-  console.log(createCompletionRequest)
-
   try {
     const completion = await openai.createCompletion(createCompletionRequest);
 

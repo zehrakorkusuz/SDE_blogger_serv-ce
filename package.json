@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "nodemon index.js"
+    "start-dev": "nodemon index.js",
+    "create-env": "printenv > .env",
+    "artifactregistry-login": "npx google-artifactregistry-auth"
   },
   "author": "",
   "license": "ISC",

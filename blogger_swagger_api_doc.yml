@@ -1,0 +1,46 @@
+openapi: '3.0.2'
+info:
+  title: Generate Text Content with Open AI 
+  version: '1.0'
+servers:
+  - url: https://blogger-service-7x5inv6roa-lz.a.run.app
+paths:
+  /generateText:
+    post:
+      summary: Generate a text content from a prompt. You can send a request with title of the blog post.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                  prompt:
+                    type: string
+      responses:
+        '200':
+          description: An text object.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  text:
+                    type: string
+                    example: Isaac Asimov is one of the most influential writers in the history of science fiction. He is best known for his Robot series, which includes the classic I, Robot, one of the most beloved and widely read books in the genre. Asimov's work has had a profound impact on the way we think about robots and artificial intelligence, and his stories have been adapted into many films and television shows.
+        '401':
+          description: Invalid token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: Unauthorized
